@@ -1,0 +1,17 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: workshop_jenkins
+    ports:
+      - "8083:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  
+  sonarqube:
+    image: sonarqube
+    container_name: workshop_sonarqube
+    ports:
+      - "9001:9000"
+    volumes:
+      - ./my_services:/var/sonarqube
